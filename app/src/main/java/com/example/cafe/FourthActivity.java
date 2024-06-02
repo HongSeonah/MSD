@@ -1,19 +1,19 @@
 package com.example.cafe;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ImageView;
-import android.view.LayoutInflater;
 
 public class FourthActivity extends AppCompatActivity {
     CafeDBHelper helper;
@@ -26,8 +26,8 @@ public class FourthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fourth);
         helper = new CafeDBHelper(this);
 
-        etSearch = (EditText) findViewById(R.id.editTextSearch);
-        layoutCafes = (LinearLayout) findViewById(R.id.layoutCafes);
+        etSearch = findViewById(R.id.editTextSearch);
+        layoutCafes = findViewById(R.id.layoutCafes);
 
         // 앱 시작 시 모든 카페 정보를 불러옴
         loadAllCafes();
@@ -59,7 +59,7 @@ public class FourthActivity extends AppCompatActivity {
                 layoutCafes.addView(cafeCard);
             }
         } catch (Exception e) {
-            Log.e("FourthActivity", "Error fetching data", e);
+            Log.e("FourthActivity", "데이터를 불러오는 중 오류 발생", e);
         } finally {
             if (cursor != null) {
                 cursor.close();
@@ -69,54 +69,6 @@ public class FourthActivity extends AppCompatActivity {
             }
         }
     }
-
-
-    // 검색 버튼 클릭 시 호출되는 함수
-    public void searchOnClick(View v) {
-        String cafeName = etSearch.getText().toString();
-        loadFilteredCafes(cafeName);
-    }
-
-    // 검색어를 기반으로 카페 정보를 필터링하여 불러오는 함수
-    private void loadFilteredCafes(String cafeName) {
-        SQLiteDatabase sqlDB = null;
-        Cursor cursor = null;
-        try {
-            sqlDB = helper.getReadableDatabase();
-            cursor = sqlDB.rawQuery("SELECT cafe_name, cafe_con, addr, cafe_img FROM tb_cafe WHERE cafe_name LIKE ? OR cafe_con LIKE ? OR addr LIKE ?", new String[]{"%" + cafeName + "%", "%" + cafeName + "%", "%" + cafeName + "%"});
-
-            layoutCafes.removeAllViews(); // 기존의 뷰 제거
-
-            while (cursor.moveToNext()) {
-                String name = cursor.getString(0);
-                String con = cursor.getString(1);
-                String addr = cursor.getString(2);
-                String img = cursor.getString(3);
-
-                View cafeCard = createCafeCard(name, con, addr, img);
-
-                // 마진 설정
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                layoutParams.setMargins(15, 20, 15, 30); // 상단 마진 추가
-                cafeCard.setLayoutParams(layoutParams); // 레이아웃 파라미터 설정
-
-                layoutCafes.addView(cafeCard);
-            }
-        } catch (Exception e) {
-            Log.e("FourthActivity", "Error fetching data", e);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (sqlDB != null) {
-                sqlDB.close();
-            }
-        }
-    }
-
 
     // 카페 정보를 담은 CardView를 생성하는 함수
     private View createCafeCard(String cafeName, String cafeCon, String addr, String cafeImg) {
@@ -132,14 +84,29 @@ public class FourthActivity extends AppCompatActivity {
         tvCafeCon.setText(cafeCon);
         tvAddr.setText(addr);
 
-        // 이미지 리소스 설정 (여기서는 리소스 이름을 리소스 ID로 변환하여 설정하는 예시)
+        // 이미지 리소스 설정
         int resId = getResources().getIdentifier(cafeImg, "drawable", getPackageName());
         ivCafeImg.setImageResource(resId);
+
+        // 카드뷰에 클릭 리스너 추가
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 클릭된 카드뷰의 정보를 가져와서 상세 정보 액티비티로 전달
+                Intent intent = new Intent(FourthActivity.this, FifthActivity.class);
+                intent.putExtra("cafeName", cafeName);
+                intent.putExtra("cafeCon", cafeCon);
+                intent.putExtra("addr", addr);
+                intent.putExtra("cafeImg", cafeImg);
+                startActivity(intent);
+            }
+        });
 
         return cardView;
     }
 
-    class CafeDBHelper extends SQLiteOpenHelper {
+    // SQLite 데이터베이스 도우미 클래스
+    static class CafeDBHelper extends SQLiteOpenHelper {
         public CafeDBHelper(Context context) {
             super(context, "cafe.db", null, 1);
         }
