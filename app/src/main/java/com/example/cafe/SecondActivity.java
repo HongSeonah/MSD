@@ -34,5 +34,16 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        ImageView imageView3 = findViewById(R.id.menu);
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 메뉴로 이동
+                Intent intent = new Intent(SecondActivity.this, FourthActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

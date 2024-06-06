@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,6 +46,11 @@ public class FifthActivity extends AppCompatActivity {
 
         // 데이터베이스에서 번호와 시간 정보 가져오기
         loadPhoneAndTimeFromDatabase(cafeName);
+    }
+
+    public void openOrderActivity(View view) {
+        Intent intent = new Intent(FifthActivity.this, OrderActivity.class);
+        startActivity(intent);
     }
 
     // 데이터베이스에서 번호와 시간 정보를 가져와서 뷰에 설정하는 함수

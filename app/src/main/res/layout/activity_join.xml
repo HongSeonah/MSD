@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="#FFFFFF"
     tools:context=".LoginActivity">
 
     <TextView
@@ -47,9 +48,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="ID:"
+                android:fontFamily="@font/nanumsquareneo2"
                 android:textSize="20dp" />
 
             <EditText
+                android:id="@+id/editTextID"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -86,9 +89,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="PW:"
+                android:fontFamily="@font/nanumsquareneo2"
                 android:textSize="20dp" />
 
             <EditText
+                android:id="@+id/editTextPW"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"

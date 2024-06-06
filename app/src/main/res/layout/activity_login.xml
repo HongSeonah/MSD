@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="#FFFFFF"
     tools:context=".LoginActivity">
 
     <TextView
@@ -47,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="ID:"
+                android:fontFamily="@font/nanumsquareneo2"
                 android:textSize="20dp" />
 
             <EditText
@@ -86,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="PW:"
+                android:fontFamily="@font/nanumsquareneo2"
                 android:textSize="20dp" />
 
             <EditText
@@ -121,6 +124,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:alpha="0.5"
+        android:fontFamily="@font/nanumsquareneo2"
         android:layout_marginTop="20dp"
         android:text="아이디가 없으신가요?" />
 
@@ -130,7 +134,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:alpha="0.5"
-        android:text="회원가입하기" />
-
+        android:text="회원가입하기"
+        android:fontFamily="@font/nanumsquareneo2" />
 
 </LinearLayout>

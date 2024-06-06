@@ -40,76 +40,168 @@
         android:scaleType="centerCrop"
         android:src="@drawable/placeholder_image" />
 
-    <!-- Content Container -->
-    <LinearLayout
+    <!-- Scrollable Content Container -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="255dp"
-        android:orientation="vertical"
-        android:padding="40dp"
-        android:background="@drawable/container_background"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/tvCafeName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            android:textSize="24sp"
-            android:fontFamily="@font/nanumsquareneo"
-            android:text="Cafe Name" />
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="#C9C9C9" />
-
-        <TextView
-            android:id="@+id/tvCafeCon"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/nanumsquareneo2"
-            android:text="Cafe Description"
-            android:layout_marginBottom="5dp"/>
+            android:orientation="vertical"
+            android:padding="40dp"
+            android:background="@drawable/container_background">
 
-        <TextView
-            android:id="@+id/tvAddr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareneo2"
-            android:layout_gravity="center_horizontal"
-            android:text="Address"
-            android:layout_marginBottom="5dp"/>
+            <TextView
+                android:id="@+id/tvCafeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:textSize="24sp"
+                android:fontFamily="@font/nanumsquareneo"
+                android:text="Cafe Name" />
 
-        <TextView
-            android:id="@+id/tvPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareneo2"
-            android:layout_gravity="center_horizontal"
-            android:text="Phone"
-            android:layout_marginBottom="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#C9C9C9" />
 
-        <TextView
-            android:id="@+id/tvOpenTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareneo2"
-            android:layout_gravity="center_horizontal"
-            android:text="Open Time"
-            android:layout_marginBottom="5dp"/>
+            <TextView
+                android:id="@+id/tvCafeCon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nanumsquareneo2"
+                android:text="Cafe Description"
+                android:layout_marginBottom="5dp"/>
 
-        <TextView
-            android:id="@+id/tvCloseTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareneo2"
-            android:layout_gravity="center_horizontal"
-            android:text="Close Time" />
+            <TextView
+                android:id="@+id/tvAddr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareneo2"
+                android:layout_gravity="center_horizontal"
+                android:text="Address"
+                android:layout_marginBottom="5dp"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareneo2"
+                android:layout_gravity="center_horizontal"
+                android:text="Phone"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/tvOpenTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareneo2"
+                android:layout_gravity="center_horizontal"
+                android:text="Open Time"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/tvCloseTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareneo2"
+                android:layout_gravity="center_horizontal"
+                android:text="Close Time" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#EAEAEA" />
+
+            <!-- Reviews Header -->
+            <TextView
+                android:id="@+id/tvReviewsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/nanumsquareneo"
+                android:text="방문자 리뷰" />
+
+            <!-- Reviews -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <!-- Single Review -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <!-- Review Image -->
+                    <ImageView
+                        android:id="@+id/ivReviewImg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/review_img"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="10dp"/>
+
+                    <!-- Review Content -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- Review Text -->
+                        <TextView
+                            android:id="@+id/tvReviewContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="This is a sample review. The cafe was excellent and the service was great."
+                            android:fontFamily="@font/nanumsquareneo2"
+                            android:layout_marginBottom="5dp"/>
+
+                        <!-- Reviewer and Date -->
+                        <TextView
+                            android:id="@+id/tvReviewerAndDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reviewer Name - 2024-06-06"
+                            android:fontFamily="@font/nanumsquareneo2"
+                            android:textColor="#888888"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Additional reviews can be added in a similar manner -->
+
+            </LinearLayout>
+            <!-- Order Button -->
+            <android.widget.Button
+                android:id="@+id/btnOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="250dp"
+                android:onClick="openOrderActivity"
+                android:padding="10dp"
+                android:text="주문하기"
+                android:background="@drawable/rounded_button"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
