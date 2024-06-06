@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class SecondActivity extends AppCompatActivity {
@@ -14,21 +15,22 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        ImageView menuImageView = findViewById(R.id.menu);
-        ImageView mapImageView = findViewById(R.id.map);
-
-        menuImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = findViewById(R.id.map);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, FourthActivity.class);
+                // ThirdActivity로 이동
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
                 startActivity(intent);
             }
         });
 
-        mapImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView2 = findViewById(R.id.login);
+        imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                // 로그인으로 이동
+                Intent intent = new Intent(SecondActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

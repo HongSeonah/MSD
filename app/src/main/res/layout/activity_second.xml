@@ -21,16 +21,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="@font/nanumsquareneo"
         android:text="정왕동 카페찾기"
-        android:textSize="28dp"
-        android:fontFamily="@font/nanumsquareneo" />
+        android:textSize="28dp" />
+
+    <ImageView
+        android:id="@+id/login"
+        android:layout_width="5sp"
+        android:layout_height="35sp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/login" />
 
     <ImageView
         android:id="@+id/menu"
         android:layout_width="5sp"
         android:layout_height="25sp"
         android:layout_weight="1"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="0dp"
         app:srcCompat="@drawable/menu" />
 
     <ImageView
@@ -203,12 +210,11 @@
 
       <EditText
           android:layout_width="255dp"
-          android:layout_height="48dp"
+          android:layout_height="45dp"
           android:layout_weight="1"
           android:background="@android:color/transparent"
           android:fontFamily="@font/nanumsquareneo2"
           android:padding="10dp"
-          android:hint="검색어를 입력하세요"
           android:textSize="16sp" />
 
       <ImageView
