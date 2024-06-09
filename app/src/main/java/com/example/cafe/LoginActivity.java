@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        helper = new CafeDBHelper(this);
+        helper = CafeDBHelper.getInstance(this);
 
         TextView signUpText = findViewById(R.id.textView6);
         signUpText.setOnClickListener(new View.OnClickListener() {
@@ -66,27 +65,5 @@ public class LoginActivity extends AppCompatActivity {
         db.close();
 
         return count > 0;
-    }
-
-    // SQLite 데이터베이스 도우미 클래스
-    static class CafeDBHelper extends SQLiteOpenHelper {
-        public CafeDBHelper(Context context) {
-            super(context, "cafe.db", null, 1);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE tb_user (" +
-                    "user_seq INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "user_id VARCHAR(50)," +
-                    "user_pw VARCHAR(50));");
-            Log.d(TAG, "User table created.");
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS tb_user");
-            onCreate(db);
-        }
     }
 }

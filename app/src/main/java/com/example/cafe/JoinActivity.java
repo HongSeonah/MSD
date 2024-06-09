@@ -1,18 +1,18 @@
 package com.example.cafe;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class JoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
-        CafeDBHelper helper = new CafeDBHelper(this);
+        CafeDBHelper helper = CafeDBHelper.getInstance(this);
 
         Button button = findViewById(R.id.button3);
         EditText editTextID = findViewById(R.id.editTextID);
@@ -94,26 +94,5 @@ public class JoinActivity extends AppCompatActivity {
     // 비밀번호 유효성 검사 메서드
     private boolean isValidPW(String pw) {
         return pw.length() >= 8 && pw.length() <= 20 && pw.matches("[a-zA-Z0-9]+") && !pw.matches("[^a-zA-Z0-9]+");
-    }
-
-    // SQLite 데이터베이스 도우미 클래스
-    static class CafeDBHelper extends SQLiteOpenHelper {
-        public CafeDBHelper(Context context) {
-            super(context, "cafe.db", null, 1);
-        }
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE tb_user (" +
-                    "user_seq INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "user_id VARCHAR(50)," +
-                    "user_pw VARCHAR(50));");
-            Log.d(TAG, "User table created.");
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS tb_user");
-            onCreate(db);
-        }
     }
 }

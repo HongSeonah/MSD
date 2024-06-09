@@ -24,7 +24,7 @@ public class FourthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
-        helper = new CafeDBHelper(this);
+        helper = CafeDBHelper.getInstance(this); // 싱글톤 인스턴스 가져오기
 
         etSearch = findViewById(R.id.editTextSearch);
         layoutCafes = findViewById(R.id.layoutCafes);
@@ -104,33 +104,5 @@ public class FourthActivity extends AppCompatActivity {
 
         return cardView;
     }
-
-    // SQLite 데이터베이스 도우미 클래스
-    static class CafeDBHelper extends SQLiteOpenHelper {
-        public CafeDBHelper(Context context) {
-            super(context, "cafe.db", null, 1);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE tb_cafe (" +
-                    "cafe_seq INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "cafe_name TEXT," +
-                    "cafe_con TEXT," +
-                    "cafe_phone TEXT," +
-                    "open_time TEXT," +
-                    "close_time TEXT," +
-                    "addr TEXT," +
-                    "latitude DECIMAL(16,14)," +
-                    "longitude DECIMAL(18,15)," +
-                    "cafe_img TEXT," +
-                    "dtime DATETIME);");
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS tb_cafe");
-            onCreate(db);
-        }
-    }
 }
+

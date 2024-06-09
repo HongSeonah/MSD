@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,7 +57,7 @@ public class FifthActivity extends AppCompatActivity {
         SQLiteDatabase sqlDB = null;
         Cursor cursor = null;
         try {
-            FourthActivity.CafeDBHelper helper = new FourthActivity.CafeDBHelper(this);
+            CafeDBHelper helper = CafeDBHelper.getInstance(this);
             sqlDB = helper.getReadableDatabase();
             cursor = sqlDB.rawQuery("SELECT cafe_phone, open_time, close_time FROM tb_cafe WHERE cafe_name=?", new String[]{cafeName});
 
