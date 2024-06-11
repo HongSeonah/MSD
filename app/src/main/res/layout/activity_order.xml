@@ -289,6 +289,17 @@
         </LinearLayout>
     </LinearLayout>
 
+    <android.widget.Button
+        android:id="@+id/btnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주문하기"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/drink3_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
     <!-- Total Price -->
     <TextView
         android:id="@+id/tvTotalPrice"

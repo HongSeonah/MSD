@@ -1,17 +1,20 @@
 package com.example.cafe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OrderActivity extends AppCompatActivity {
-
     private TextView tvDrink1Quantity, tvDrink2Quantity, tvDrink3Quantity, tvTotalPrice;
     private Button btnDrink1Decrease, btnDrink1Increase, btnDrink2Decrease, btnDrink2Increase,
-            btnDrink3Decrease, btnDrink3Increase;
+            btnDrink3Decrease, btnDrink3Increase, btnOrder;
     private int drink1Price = 5000, drink2Price = 7000, drink3Price = 4500;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,14 @@ public class OrderActivity extends AppCompatActivity {
                 increaseQuantity(tvDrink3Quantity);
             }
         });
+
+        btnOrder = findViewById(R.id.btnOrder);
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                placeOrder();
+            }
+        });
     }
 
     // Method to decrease quantity
@@ -101,5 +112,18 @@ public class OrderActivity extends AppCompatActivity {
 
         int totalPrice = (drink1Price * drink1Quantity) + (drink2Price * drink2Quantity) + (drink3Price * drink3Quantity);
         tvTotalPrice.setText("총 가격: " + totalPrice + "원");
+    }
+
+    private void placeOrder() {
+        // Display toast message
+        Toast.makeText(this, "주문이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+
+        // Reset quantity to 0
+        tvDrink1Quantity.setText("0");
+        tvDrink2Quantity.setText("0");
+        tvDrink3Quantity.setText("0");
+
+        // Recalculate total price
+        calculateTotalPrice();
     }
 }
