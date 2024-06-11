@@ -3,6 +3,7 @@ package com.example.cafe;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private CafeDBHelper helper;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         helper = CafeDBHelper.getInstance(this);
 
         TextView signUpText = findViewById(R.id.textView6);
+        sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE); // SharedPreferences 초기화
+
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +50,11 @@ public class LoginActivity extends AppCompatActivity {
                 String pw = editTextPW.getText().toString().trim();
 
                 if (isValidLogin(id, pw)) {
+                    // 로그인 성공 시 SharedPreferences에 로그인 상태 저장
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.apply();
+
                     Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
                     startActivity(intent);
                     Toast.makeText(LoginActivity.this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();

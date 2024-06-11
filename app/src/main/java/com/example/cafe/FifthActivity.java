@@ -1,21 +1,32 @@
 package com.example.cafe;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FifthActivity extends AppCompatActivity {
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth);
+
+        sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE);
 
         // Intent로부터 데이터를 가져옴
         Intent intent = getIntent();
@@ -23,7 +34,6 @@ public class FifthActivity extends AppCompatActivity {
         String cafeCon = intent.getStringExtra("cafeCon");
         String addr = intent.getStringExtra("addr");
         String cafeImg = intent.getStringExtra("cafeImg");
-
         // 가져온 데이터를 레이아웃의 뷰에 설정
         TextView tvCafeNameHeader = findViewById(R.id.tvCafeNameHeader);
         TextView tvCafeName = findViewById(R.id.tvCafeName);
@@ -33,6 +43,7 @@ public class FifthActivity extends AppCompatActivity {
         TextView tvOpenTime = findViewById(R.id.tvOpenTime);
         TextView tvCloseTime = findViewById(R.id.tvCloseTime);
         ImageView ivCafeImg = findViewById(R.id.ivCafeImg);
+        TextView testText = findViewById(R.id.testText); // 추가
 
         tvCafeNameHeader.setText(cafeName); // 헤더 텍스트뷰에 카페 이름 설정
         tvCafeName.setText(cafeName);
@@ -45,6 +56,18 @@ public class FifthActivity extends AppCompatActivity {
 
         // 데이터베이스에서 번호와 시간 정보 가져오기
         loadPhoneAndTimeFromDatabase(cafeName);
+
+        // 로그인 여부에 따라서 testText 보이기/숨기기
+        if (isLoggedIn()) {
+            testText.setVisibility(View.VISIBLE);
+        } else {
+            testText.setVisibility(View.GONE);
+        }
+    }
+
+    // SharedPreferences를 이용한 로그인 상태 확인
+    private boolean isLoggedIn() {
+        return sharedPreferences.getBoolean("isLoggedIn", false);
     }
 
     public void openOrderActivity(View view) {

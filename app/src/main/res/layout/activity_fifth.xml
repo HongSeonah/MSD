@@ -188,7 +188,13 @@
                 <!-- Additional reviews can be added in a similar manner -->
 
             </LinearLayout>
-            <!-- Order Button -->
+
+            <TextView
+                android:id="@+id/testText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
             <android.widget.Button
                 android:id="@+id/btnOrder"
                 android:layout_width="wrap_content"
