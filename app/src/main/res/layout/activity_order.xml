@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nanumsquareneo"
-            android:text="카페 이름"
+            android:text="주문하기"
             android:textSize="28dp" />
 
         <View
@@ -61,7 +61,7 @@
                 android:id="@+id/tvDrink1Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="음료 이름 1"
+                android:text="아메리카노"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:fontFamily="@font/nanumsquareneo" />
@@ -75,7 +75,9 @@
                 android:textColor="@android:color/darker_gray"
                 android:textSize="16sp"
                 android:fontFamily="@font/nanumsquareneo2" />
+
         </LinearLayout>
+
 
         <!-- Drink 1 Quantity Selector -->
         <LinearLayout
@@ -131,7 +133,7 @@
             android:id="@+id/ivDrink2Image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/drink_image"
+            android:src="@drawable/drink_image2"
             android:scaleType="centerCrop"/>
 
         <!-- Drink 2 Details -->
@@ -147,7 +149,7 @@
                 android:id="@+id/tvDrink2Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="음료 이름 2"
+                android:text="카페라테"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:fontFamily="@font/nanumsquareneo" />
@@ -217,7 +219,7 @@
             android:id="@+id/ivDrink3Image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/drink_image"
+            android:src="@drawable/drink_image3"
             android:scaleType="centerCrop"/>
 
         <!-- Drink 3 Details -->
@@ -233,7 +235,7 @@
                 android:id="@+id/tvDrink3Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="음료 이름 3"
+                android:text="딸기라떼"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:fontFamily="@font/nanumsquareneo" />

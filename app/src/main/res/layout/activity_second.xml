@@ -209,18 +209,22 @@
         android:orientation="horizontal">
 
       <EditText
+          android:id="@+id/editTextSearch"
           android:layout_width="255dp"
           android:layout_height="45dp"
           android:layout_weight="1"
           android:background="@android:color/transparent"
           android:fontFamily="@font/nanumsquareneo2"
           android:padding="10dp"
+          android:hint="검색어를 입력하세요"
           android:textSize="16sp" />
 
       <ImageView
+          android:id="@+id/search_button"
           android:layout_width="24dp"
           android:layout_height="24dp"
           android:layout_marginRight="15dp"
+          android:onClick="searchOnClick"
           android:src="@drawable/glass" />
 
     </LinearLayout>

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
@@ -16,9 +17,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 
 public class ThirdActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final String TAG = ThirdActivity.class.getSimpleName();
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
 
@@ -30,7 +33,9 @@ public class ThirdActivity extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_third);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -49,11 +54,15 @@ public class ThirdActivity extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        // 지도 확대, 축소 컨트롤 버튼 활성화
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        // 현재 위치 표시 활성화
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_LOCATION);
             return;
         }
-
         mMap.setMyLocationEnabled(true);
 
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
@@ -63,6 +72,7 @@ public class ThirdActivity extends AppCompatActivity implements OnMapReadyCallba
             }
         });
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

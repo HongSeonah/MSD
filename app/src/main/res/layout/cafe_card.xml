@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquareneo"
                 android:text="카페 이름"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvCafeCon"
@@ -54,7 +54,7 @@
                 android:fontFamily="@font/nanumsquareneo2"
                 android:text="카페 주소가 여기에 들어갑니다."
                 android:layout_marginTop="3dp"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

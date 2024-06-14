@@ -49,13 +49,16 @@ public class LoginActivity extends AppCompatActivity {
                 String id = editTextID.getText().toString().trim();
                 String pw = editTextPW.getText().toString().trim();
 
-                if (isValidLogin(id, pw)) {
+                int userSeq = getUserSeqIfValidLogin(id, pw);
+                if (userSeq != -1) {
                     // 로그인 성공 시 SharedPreferences에 로그인 상태 저장
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("isLoggedIn", true);
+                    editor.putInt("userSeq", userSeq); // userSeq 저장
                     editor.apply();
 
                     Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
+                    intent.putExtra("userSeq", userSeq); // userSeq 전달
                     startActivity(intent);
                     Toast.makeText(LoginActivity.this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
                 } else {
@@ -65,14 +68,16 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isValidLogin(String id, String pw) {
+    private int getUserSeqIfValidLogin(String id, String pw) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM tb_user WHERE user_id = ? AND user_pw = ?", new String[]{id, pw});
-        cursor.moveToFirst();
-        int count = cursor.getInt(0);
+        Cursor cursor = db.rawQuery("SELECT user_seq FROM tb_user WHERE user_id = ? AND user_pw = ?", new String[]{id, pw});
+        int userSeq = -1;
+        if (cursor.moveToFirst()) {
+            userSeq = cursor.getInt(0);
+        }
         cursor.close();
         db.close();
 
-        return count > 0;
+        return userSeq;
     }
 }

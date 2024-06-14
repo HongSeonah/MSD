@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <meta-data
@@ -64,7 +65,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDsv3AcBAKGq63p3qWrVBax5iZGFQaroT0" />
+            android:value="AIzaSyBw51NnTMGeHhZqGtPBEMLKrFXDWKfQDFQ" />
     </application>
 
 </manifest>
