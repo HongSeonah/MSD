@@ -45,16 +45,17 @@
                 android:fontFamily="@font/nanumsquareneo2"
                 android:text="카페 설명이 여기에 들어갑니다."
                 android:layout_marginTop="5dp"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/tvAddr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:fontFamily="@font/nanumsquareneo2"
                 android:text="카페 주소가 여기에 들어갑니다."
-                android:layout_marginTop="3dp"
-                android:textSize="10sp" />
+                android:textColor="#8A8A8A"
+                android:textSize="9sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

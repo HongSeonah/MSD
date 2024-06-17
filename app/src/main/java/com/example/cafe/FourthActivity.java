@@ -28,6 +28,15 @@ public class FourthActivity extends AppCompatActivity {
         etSearch = findViewById(R.id.editTextSearch);
         layoutCafes = findViewById(R.id.layoutCafes);
 
+        // "뒤로 가기" 이미지뷰 클릭 이벤트 처리
+        ImageView backButton = findViewById(R.id.imageView);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 액티비티 종료
+            }
+        });
+
         // 액티비티2에서 전달받은 검색어 가져오기
         String searchQuery = getIntent().getStringExtra("searchQuery");
         if (searchQuery != null && !searchQuery.isEmpty()) {

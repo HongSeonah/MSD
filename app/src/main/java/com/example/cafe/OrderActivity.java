@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,15 @@ public class OrderActivity extends AppCompatActivity {
         btnDrink2Increase = findViewById(R.id.btnDrink2Increase);
         btnDrink3Decrease = findViewById(R.id.btnDrink3Decrease);
         btnDrink3Increase = findViewById(R.id.btnDrink3Increase);
+
+        // "뒤로 가기" 이미지뷰 클릭 이벤트 처리
+        ImageView backButton = findViewById(R.id.imageView);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 액티비티 종료
+            }
+        });
 
         // Set onClickListeners
         btnDrink1Decrease.setOnClickListener(new View.OnClickListener() {

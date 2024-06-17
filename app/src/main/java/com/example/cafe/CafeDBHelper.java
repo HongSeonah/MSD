@@ -55,104 +55,104 @@ public class CafeDBHelper extends SQLiteOpenHelper {
                     "FOREIGN KEY (cafe_seq) REFERENCES tb_cafe (cafe_seq)," +
                     "FOREIGN KEY (user_seq) REFERENCES tb_user (user_seq));");
 
-            db.execSQL("INSERT INTO tb_user (user_id, user_pw) VALUES (" +
-                    "'12345678', " +
-                    "'12345678');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'에스프레소플래닛'," +
-                    "'생화 보는 즐거움이 있는 커피가 맛있는 카페'," +
-                    "'031-432-0998'," +
-                    "'10:00'," +
-                    "'23:00'," +
-                    "'경기 시흥시 마유로418번길 10'," +
-                    "37.351402," +
-                    "126.741839," +
-                    "'espressoplanet');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'스타벅스 시화로데오점'," +
-                    "'커피 한 잔하며 작업하기 좋은 쾌적한 카페'," +
-                    "'1522-3232'," +
-                    "'07:00'," +
-                    "'23:30'," +
-                    "'경기 시흥시 중심상가2길 20-5'," +
-                    "37.351402," +
-                    "126.741839," +
-                    "'starbucks');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'읍천리382 시흥정왕점'," +
-                    "'옛날 느낌  물씬 나는 분위기 있는 인테리어에 음료와 디저트가 맛있는 카페'," +
-                    "'0507-1350-1633'," +
-                    "'08:30'," +
-                    "'23:00'," +
-                    "'경기 시흥시 중심상가로 180 108호, 109호'," +
-                    "37.344725," +
-                    "126.735242," +
-                    "'eupcheonri');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'49번가디저트카페'," +
-                    "'커피가 저렴하고 마카롱과 다쿠아즈가 맛있는 카페'," +
-                    "'0507-2093-4341'," +
-                    "'10:30'," +
-                    "'23:00'," +
-                    "'경기 시흥시 중심상가로 187 진명프라자 103호'," +
-                    "37.344637," +
-                    "126.736034," +
-                    "'treetdesertcafe49');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'재리스토스트카페 정왕직영점'," +
-                    "'인테리어가 힙하고 귀여운 카페'," +
-                    "'010-9943-2571'," +
-                    "'11:00'," +
-                    "'23:30'," +
-                    "'경기 시흥시 중심상가2길 12-6 2층 204호'," +
-                    "37.34528," +
-                    "126.736263," +
-                    "'jaerytoastcafe');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'타르트봉봉 정왕본점'," +
-                    "'타르트와 커피가 맛있는 카페'," +
-                    "'0507-1386-3554'," +
-                    "'11:00'," +
-                    "'23:00'," +
-                    "'경기 시흥시 중심상가로 192 108호 타르트봉봉 정왕본점'," +
-                    "37.344072," +
-                    "126.736428," +
-                    "'tartbongbong');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'이디야커피 시화로데오점'," +
-                    "'오붓하게 얘기하기 좋고 커피가 맛있고 사장님이 친절한 카페'," +
-                    "'0507-1384-0872'," +
-                    "'08:00'," +
-                    "'23:55'," +
-                    "'경기 시흥시 중심상가2길 20-13'," +
-                    "37.345532," +
-                    "126.733383," +
-                    "'ediya');");
-
-            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
-                    "'커피베이 정왕중심상가점'," +
-                    "'탁 트여 여유롭게 이야기하기 좋은 오픈 카페'," +
-                    "'0507-1355-5882'," +
-                    "'09:00'," +
-                    "'23:00'," +
-                    "'경기 시흥시 중심상가3길 22 1층 107호'," +
-                    "37.34431," +
-                    "126.735905," +
-                    "'coffeebay');");
-
-            // Adding a review example
-            db.execSQL("INSERT INTO tb_review (cafe_seq, user_seq, content, review_img) VALUES (" +
-                    "1, " +
-                    "1, " +
-                    "'정말 훌륭한 카페입니다! 커피도 맛있고 분위기도 좋아요.', " +
-                    "'review_img');");
+//            db.execSQL("INSERT INTO tb_user (user_id, user_pw) VALUES (" +
+//                    "'12345678', " +
+//                    "'12345678');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'에스프레소플래닛'," +
+//                    "'생화 보는 즐거움이 있는 커피가 맛있는 카페'," +
+//                    "'031-432-0998'," +
+//                    "'10:00'," +
+//                    "'23:00'," +
+//                    "'경기 시흥시 마유로418번길 10'," +
+//                    "37.351402," +
+//                    "126.741839," +
+//                    "'espressoplanet');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'스타벅스 시화로데오점'," +
+//                    "'커피 한 잔하며 작업하기 좋은 쾌적한 카페'," +
+//                    "'1522-3232'," +
+//                    "'07:00'," +
+//                    "'23:30'," +
+//                    "'경기 시흥시 중심상가2길 20-5'," +
+//                    "37.344625," +
+//                    "126.737398," +
+//                    "'starbucks');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'읍천리382 시흥정왕점'," +
+//                    "'옛날 느낌 물씬 나는 분위기 있는 카페'," +
+//                    "'0507-1350-1633'," +
+//                    "'08:30'," +
+//                    "'23:00'," +
+//                    "'경기 시흥시 중심상가로 180 108호, 109호'," +
+//                    "37.344725," +
+//                    "126.735242," +
+//                    "'eupcheonri');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'49번가디저트카페'," +
+//                    "'커피가 저렴하고 마카롱과 다쿠아즈가 맛있는 카페'," +
+//                    "'0507-2093-4341'," +
+//                    "'10:30'," +
+//                    "'23:00'," +
+//                    "'경기 시흥시 중심상가로 187 진명프라자 103호'," +
+//                    "37.344637," +
+//                    "126.736034," +
+//                    "'treetdesertcafe49');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'재리스토스트카페 정왕직영점'," +
+//                    "'인테리어가 힙하고 귀여운 카페'," +
+//                    "'010-9943-2571'," +
+//                    "'11:00'," +
+//                    "'23:30'," +
+//                    "'경기 시흥시 중심상가2길 12-6 2층 204호'," +
+//                    "37.34528," +
+//                    "126.736263," +
+//                    "'jaerytoastcafe');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'타르트봉봉 정왕본점'," +
+//                    "'타르트와 커피가 맛있는 카페'," +
+//                    "'0507-1386-3554'," +
+//                    "'11:00'," +
+//                    "'23:00'," +
+//                    "'경기 시흥시 중심상가로 192 108호 타르트봉봉 정왕본점'," +
+//                    "37.344072," +
+//                    "126.736428," +
+//                    "'tartbongbong');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'이디야커피 시화로데오점'," +
+//                    "'오붓하게 얘기하기 좋고 커피가 맛있고 사장님이 친절한 카페'," +
+//                    "'0507-1384-0872'," +
+//                    "'08:00'," +
+//                    "'23:55'," +
+//                    "'경기 시흥시 중심상가2길 20-13'," +
+//                    "37.344568," +
+//                    "126.737074," +
+//                    "'ediya');");
+//
+//            db.execSQL("INSERT INTO tb_cafe (cafe_name, cafe_con, cafe_phone, open_time, close_time, addr, latitude, longitude, cafe_img) VALUES (" +
+//                    "'커피베이 정왕중심상가점'," +
+//                    "'탁 트여 여유롭게 이야기하기 좋은 오픈 카페'," +
+//                    "'0507-1355-5882'," +
+//                    "'09:00'," +
+//                    "'23:00'," +
+//                    "'경기 시흥시 중심상가3길 22 1층 107호'," +
+//                    "37.34431," +
+//                    "126.735905," +
+//                    "'coffeebay');");
+//
+//            // Adding a review example
+//            db.execSQL("INSERT INTO tb_review (cafe_seq, user_seq, content, review_img) VALUES (" +
+//                    "1, " +
+//                    "1, " +
+//                    "'정말 훌륭한 카페입니다! 커피도 맛있고 분위기도 좋아요.', " +
+//                    "'review_img');");
 
 
             Log.d(TAG, "Database tables created successfully.");
@@ -176,6 +176,7 @@ public class CafeDBHelper extends SQLiteOpenHelper {
             db.execSQL("PRAGMA foreign_keys=ON;");
         }
     }
+
     // Add the following methods and class
     public List<Location> getAllCafeLocations() {
         List<Location> locations = new ArrayList<>();
@@ -228,3 +229,4 @@ public class CafeDBHelper extends SQLiteOpenHelper {
         }
     }
 }
+

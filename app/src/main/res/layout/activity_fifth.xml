@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".FifthActivity">
 
     <!-- Header -->
@@ -14,12 +15,20 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="25sp"
+            android:src="@drawable/arrow" />
+
         <TextView
             android:id="@+id/tvCafeNameHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nanumsquareneo"
+            android:layout_marginTop="-36dp"
             android:text="카페 이름"
             android:textSize="28dp" />
 
@@ -148,33 +157,28 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <androidx.cardview.widget.CardView
+                    <EditText
+                        android:id="@+id/etReviewInput"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_weight="1"
-                        android:background="@android:color/transparent">
-
-                        <EditText
-                            android:id="@+id/etReviewInput"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="리뷰를 작성하세요"
-                            android:fontFamily="@font/nanumsquareneo2"
-                            android:textSize="14sp"
-                            android:padding="10dp"
-                            android:layout_marginRight="5dp"
-                            android:background="@drawable/rounded_edittext_background"
-                            android:layout_gravity="center_vertical" />
-                    </androidx.cardview.widget.CardView>
+                        android:hint="리뷰를 작성하세요"
+                        android:fontFamily="@font/nanumsquareneo2"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/rounded_edittext_background"
+                        android:layout_gravity="center_vertical" />
 
                     <Button
                         android:id="@+id/btnSubmitReview"
-                        android:layout_width="75dp"
-                        android:layout_height="45dp"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
                         android:text="제출"
                         android:backgroundTint="#F29B30"
                         android:fontFamily="@font/nanumsquareneo2"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:layout_gravity="center_vertical" />
                 </LinearLayout>
 
                 <ImageView

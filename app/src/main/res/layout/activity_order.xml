@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OrderActivity"
+    android:background="#FFFFFF"
     android:padding="20dp">
 
     <!-- Header -->
@@ -15,12 +16,20 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="25sp"
+            android:src="@drawable/arrow" />
+
         <TextView
             android:id="@+id/tvCafeNameHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nanumsquareneo"
+            android:layout_marginTop="-37dp"
             android:text="주문하기"
             android:textSize="28dp" />
 
@@ -297,6 +306,7 @@
         android:layout_height="wrap_content"
         android:text="주문하기"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/nanumsquareneo"
         android:background="@drawable/rounded_button"
         android:layout_below="@id/drink3_container"
         android:layout_centerHorizontal="true"

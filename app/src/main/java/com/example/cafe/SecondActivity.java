@@ -2,15 +2,20 @@ package com.example.cafe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
-    EditText searchEditText;
+    private EditText searchEditText;
+    private SharedPreferences sharedPreferences;
+    private boolean isLoggedIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,10 @@ public class SecondActivity extends AppCompatActivity {
 
         // 검색어 입력창
         searchEditText = findViewById(R.id.editTextSearch);
+
+        // SharedPreferences 초기화
+        sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE);
+        isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
         // 검색 버튼 클릭 이벤트 처리
         ImageView searchButton = findViewById(R.id.search_button);
@@ -50,8 +59,20 @@ public class SecondActivity extends AppCompatActivity {
         loginImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, LoginActivity.class);
-                startActivity(intent);
+                if (isLoggedIn) {
+                    // 로그아웃 처리
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isLoggedIn", false);
+                    editor.putInt("userSeq", -1);
+                    editor.apply();
+                    isLoggedIn = false;
+                    Toast.makeText(SecondActivity.this, "로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
+                    // Update UI if necessary (e.g., change login image)
+                } else {
+                    // 로그인 페이지로 이동
+                    Intent intent = new Intent(SecondActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

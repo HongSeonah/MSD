@@ -13,12 +13,20 @@
         android:orientation="vertical"
         android:padding="40dp">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="25sp"
+            android:src="@drawable/arrow" />
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nanumsquareneo"
+            android:layout_marginTop="-36dp"
             android:text="내 주변 카페"
             android:textSize="28dp" />
 

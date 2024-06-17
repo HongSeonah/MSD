@@ -54,6 +54,15 @@ public class FifthActivity extends AppCompatActivity {
         etReviewInput = findViewById(R.id.etReviewInput);
         Button btnSubmitReview = findViewById(R.id.btnSubmitReview);
 
+        // "뒤로 가기" 이미지뷰 클릭 이벤트 처리
+        ImageView backButton = findViewById(R.id.imageView);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 액티비티 종료
+            }
+        });
+
         // Set click listener for submit button
         btnSubmitReview.setOnClickListener(new View.OnClickListener() {
             @Override
