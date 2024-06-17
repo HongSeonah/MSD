@@ -84,19 +84,23 @@ public class CafeDBHelper extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO tb_review (cafe_seq, user_seq, content, review_img) VALUES (1, 1, '정말 훌륭한 카페입니다! 커피도 맛있고 분위기도 좋아요.', 'review_img');");
 
             // Insert keywords
+            db.execSQL("INSERT INTO tb_key (key_con) VALUES ('디저트가 맛있는');");
             db.execSQL("INSERT INTO tb_key (key_con) VALUES ('작업하기 좋은');");
             db.execSQL("INSERT INTO tb_key (key_con) VALUES ('가장 저렴한');");
             db.execSQL("INSERT INTO tb_key (key_con) VALUES ('커피가 맛있는');");
 
             // Associate keywords with cafes
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (1, 1);"); // 에스프레소플래닛 - 작업하기 좋은
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (1, 3);"); // 에스프레소플래닛 - 커피가 맛있는
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (2, 1);"); // 스타벅스 시화로데오점 - 작업하기 좋은
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (2, 3);"); // 스타벅스 시화로데오점 - 커피가 맛있는
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (3, 3);"); // 읍천리 - 커피가 맛있는
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (4, 2);"); // 49번가디저트카페 - 가장 저렴한
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (5, 1);"); // 이디야 - 작업하기 좋은
-            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (6, 3);"); // 타르트봉봉 정왕본점 - 커피가 맛있는
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (1, 1);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (1, 2);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (2, 2);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (2, 4);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (3, 1);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (4, 1);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (4, 3);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (5, 1);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (6, 1);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (7, 2);");
+            db.execSQL("INSERT INTO tb_cafe_key (cafe_seq, key_seq) VALUES (8, 2);");
 
             Log.d(TAG, "Database tables created successfully.");
         } catch (Exception e) {

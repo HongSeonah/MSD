@@ -95,17 +95,17 @@
           android:onClick="onKeywordClick">
 
         <ImageView
-            android:layout_width="112dp"
+            android:layout_width="118dp"
             android:layout_height="112dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/location" />
+            app:srcCompat="@drawable/cake" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumsquareneo2"
             android:gravity="center"
-            android:text="가장 가까운"
+            android:text="디저트가 맛있는"
             android:textSize="14sp" />
       </LinearLayout>
 

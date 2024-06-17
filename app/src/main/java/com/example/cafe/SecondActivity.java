@@ -94,7 +94,7 @@ public class SecondActivity extends AppCompatActivity {
         String keyword;
         switch (keywordSeq) {
             case 1:
-                keyword = "가장 가까운";
+                keyword = "디저트가 맛있는";
                 break;
             case 2:
                 keyword = "작업하기 좋은";
@@ -110,7 +110,7 @@ public class SecondActivity extends AppCompatActivity {
                 break;
         }
 
-        // Pass the keyword as searchQuery to FourthActivity
+        // 키워드를 searchQuery로 FourthActivity로 전달
         Intent intent = new Intent(SecondActivity.this, FourthActivity.class);
         intent.putExtra("searchQuery", keyword);
         startActivity(intent);
