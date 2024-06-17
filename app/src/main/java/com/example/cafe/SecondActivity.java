@@ -86,4 +86,33 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    // 키워드 클릭 이벤트 처리 함수
+    public void onKeywordClick(View view) {
+        int keywordSeq = Integer.parseInt(view.getTag().toString());
+
+        String keyword;
+        switch (keywordSeq) {
+            case 1:
+                keyword = "가장 가까운";
+                break;
+            case 2:
+                keyword = "작업하기 좋은";
+                break;
+            case 3:
+                keyword = "가장 저렴한";
+                break;
+            case 4:
+                keyword = "커피가 맛있는";
+                break;
+            default:
+                keyword = "";
+                break;
+        }
+
+        // Pass the keyword as searchQuery to FourthActivity
+        Intent intent = new Intent(SecondActivity.this, FourthActivity.class);
+        intent.putExtra("searchQuery", keyword);
+        startActivity(intent);
+    }
 }

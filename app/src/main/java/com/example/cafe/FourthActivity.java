@@ -15,9 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class FourthActivity extends AppCompatActivity {
-    CafeDBHelper helper;
-    EditText etSearch;
-    LinearLayout layoutCafes;
+    private CafeDBHelper helper;
+    private EditText etSearch;
+    private LinearLayout layoutCafes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,10 +133,14 @@ public class FourthActivity extends AppCompatActivity {
         Cursor cursor = null;
         try {
             sqlDB = helper.getReadableDatabase();
-            String sqlQuery = "SELECT cafe_seq, cafe_name, cafe_con, addr, cafe_img FROM tb_cafe WHERE cafe_name LIKE ? OR cafe_con LIKE ? OR addr LIKE ?";
-            cursor = sqlDB.rawQuery(sqlQuery, new String[]{"%" + query + "%", "%" + query + "%", "%" + query + "%"});
+            String sqlQuery = "SELECT DISTINCT tb_cafe.cafe_seq, tb_cafe.cafe_name, tb_cafe.cafe_con, tb_cafe.addr, tb_cafe.cafe_img " +
+                    "FROM tb_cafe " +
+                    "LEFT JOIN tb_cafe_key ON tb_cafe.cafe_seq = tb_cafe_key.cafe_seq " +
+                    "LEFT JOIN tb_key ON tb_cafe_key.key_seq = tb_key.key_seq " +
+                    "WHERE tb_cafe.cafe_name LIKE ? OR tb_cafe.cafe_con LIKE ? OR tb_cafe.addr LIKE ? OR tb_key.key_con LIKE ?";
+            cursor = sqlDB.rawQuery(sqlQuery, new String[]{"%" + query + "%", "%" + query + "%", "%" + query + "%", "%" + query + "%"});
 
-            layoutCafes.removeAllViews(); // 기존의 뷰 제거
+            layoutCafes.removeAllViews(); // Clear existing views
 
             while (cursor.moveToNext()) {
                 int cafeSeq = cursor.getInt(0);
@@ -150,12 +154,12 @@ public class FourthActivity extends AppCompatActivity {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 );
-                layoutParams.setMargins(15, 20, 15, 30); // 상단 마진 추가
-                cafeCard.setLayoutParams(layoutParams); // 레이아웃 파라미터 설정
-                layoutCafes.addView(cafeCard);
+                layoutParams.setMargins(15, 20, 15, 30); // Add top margin
+                cafeCard.setLayoutParams(layoutParams); // Set layout parameters
+                layoutCafes.addView(cafeCard); // Add card to layout
             }
         } catch (Exception e) {
-            Log.e("FourthActivity", "데이터를 불러오는 중 오류 발생", e);
+            Log.e("FourthActivity", "Error loading data", e);
         } finally {
             if (cursor != null) {
                 cursor.close();

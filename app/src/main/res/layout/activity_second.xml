@@ -27,14 +27,14 @@
 
     <ImageView
         android:id="@+id/login"
-        android:layout_width="5sp"
+        android:layout_width="35sp"
         android:layout_height="35sp"
         android:layout_weight="1"
         app:srcCompat="@drawable/login" />
 
     <ImageView
         android:id="@+id/menu"
-        android:layout_width="5sp"
+        android:layout_width="25sp"
         android:layout_height="25sp"
         android:layout_weight="1"
         android:layout_marginLeft="0dp"
@@ -42,7 +42,7 @@
 
     <ImageView
         android:id="@+id/map"
-        android:layout_width="5sp"
+        android:layout_width="30sp"
         android:layout_height="30sp"
         android:layout_weight="1"
         app:srcCompat="@drawable/map" />
@@ -90,7 +90,9 @@
           android:layout_columnWeight="1"
           android:layout_margin="13dp"
           android:gravity="center"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:tag="1"
+          android:onClick="onKeywordClick">
 
         <ImageView
             android:layout_width="112dp"
@@ -114,7 +116,9 @@
           android:layout_columnWeight="1"
           android:layout_margin="13dp"
           android:gravity="center"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:tag="2"
+          android:onClick="onKeywordClick">
 
         <ImageView
             android:layout_width="112dp"
@@ -138,7 +142,9 @@
           android:layout_columnWeight="1"
           android:layout_margin="13dp"
           android:gravity="center"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:tag="3"
+          android:onClick="onKeywordClick">
 
         <ImageView
             android:layout_width="112dp"
@@ -162,7 +168,9 @@
           android:layout_columnWeight="1"
           android:layout_margin="13dp"
           android:gravity="center"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:tag="4"
+          android:onClick="onKeywordClick">
 
         <ImageView
             android:layout_width="112dp"
